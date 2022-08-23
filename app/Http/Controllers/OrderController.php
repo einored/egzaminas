@@ -23,13 +23,6 @@ class OrderController extends Controller
         $orders = Order::all();
 
         return view('order.index', ['orders' => $orders]);
-
-            // $table->unsignedBigInteger('dish_id');
-            // $table->foreign('dish_id')->references('id')->on('dishes');
-            // $table->integer('count');
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->integer('status')->default(0);
     }
 
     public function confirmOrder(Request $request, order $order)
@@ -74,8 +67,6 @@ class OrderController extends Controller
     {
         $order = new Order;
 
-        // $order->restaurant_id = $request->create_order_restaurant_id;
-        // $order->menu_id = $request->create_order_menu_id;
         $order->dish_id = $request->create_order_dish_id;
         $order->count = $request->create_order_count;
         $order->user_id = Auth::user()->id;

@@ -66,11 +66,6 @@ Route::get('/orders', [Order::class, 'index'])->name('orders-index')->middleware
 // //create
 Route::get('/orders/create', [Order::class, 'create'])->name('orders-create')->middleware('rp:user');
 Route::post('/orders', [Order::class, 'store'])->name('orders-store')->middleware('rp:user');
-// //edit
-// Route::get('/dishes/edit/{dish}', [Dish::class, 'edit'])->name('dishes-edit')->middleware('rp:admin');
-// Route::put('/dishes/edit/{dish}', [Dish::class, 'update'])->name('dishes-update')->middleware('rp:admin');
-// //delete
-// Route::delete('/dishes/{dish}', [Dish::class, 'destroy'])->name('dishes-delete')->middleware('rp:admin');
 //comfirm
 Route::put('/orders/confirm/{order}', [Order::class, 'confirmOrder'])->name('order-confirm')->middleware('rp:admin');
 //cancel

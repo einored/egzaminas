@@ -13,22 +13,6 @@
 
                     <ul>
                         <form action="{{route('orders-store')}}" method="post">
-                            {{-- <li>Restaurant</li>
-                            <select class="form-control" name="create_order_restaurant_id" required focus>
-                                <option value="" disabled selected>Please select restaurant</option>
-                                @foreach($restaurants as $restaurant)
-                                <option value="{{$restaurant->id}}">{{ $restaurant->name }}</option>
-                                @endforeach
-                            </select>
-                            <li>Menu</li>
-                            <select class="form-control" name="create_order_menu_id" required focus>
-                                <option value="" disabled selected>Please select menu</option>
-                                @foreach($menus as $menu)
-                                @if ($menu->restaurant_id == $restaurant->id)
-                                    <option value="{{$menu->id}}">{{ $menu->name }}</option>
-                                @endif                                
-                                @endforeach
-                            </select> --}}
                             <li>Dish</li>
                             <select class="form-control" name="create_order_dish_id" required focus>
                                 <option value="" disabled selected>Please select dish</option>
