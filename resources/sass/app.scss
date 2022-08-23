@@ -1,0 +1,34 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.alert-success {
+    background-color: aquamarine;
+    padding: 10px;
+    display: flex;
+}
+
+.alert-delete {
+    background-color: skyblue;
+    padding: 10px;
+    display: flex;
+}
+
+.alert-error {
+    background-color: red;
+    padding: 10px;
+    display: flex;
+}
+
+.image-box {
+    margin: 10px 0;
+    img {
+        width: 150px;
+        height: auto;
+    }
+} 
