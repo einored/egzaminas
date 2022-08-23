@@ -105,8 +105,8 @@ class DishController extends Controller
             $name = pathinfo($dish->image, PATHINFO_FILENAME);
             $ext = pathinfo($dish->image, PATHINFO_EXTENSION);
     
-            // $path = asset('/images') . '/' . $name . '.' . $ext;
-            $path = '\xampp\htdocs\egzaminas\public/images' . '/' . $name . '.' . $ext;
+            $path = asset('/images') . '/' . $name . '.' . $ext;
+            // $path = '\xampp\htdocs\egzaminas\public/images' . '/' . $name . '.' . $ext;
             if (file_exists($path)) {
                 unlink($path);
             }

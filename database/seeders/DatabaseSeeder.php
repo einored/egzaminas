@@ -46,21 +46,21 @@ class DatabaseSeeder extends Seeder
         do {
              $restaurants->push($faker->company);
              $restaurants = $restaurants->unique();
-        } while ($restaurants->count() < 10);
+        } while ($restaurants->count() < 3);
  
         foreach($restaurants as $restaurant) {
              DB::table('restaurants')->insert([
                  'name' => $restaurant,
                  'code' => rand(111111, 999999),
-                 'address' => $restaurant
+                 'address' => $faker->address
              ]);
         }
 
         //menu seeder
         foreach(range(1, 9) as $_) {
             DB::table('menus')->insert([
-                'restaurant_id' => rand(0 ,9),
-                'name' => $faker->name
+                'restaurant_id' => rand(0 ,2),
+                'name' => $faker->colorName
             ]);
         }
 

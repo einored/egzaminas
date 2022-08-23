@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use App\Models\dish;
+use App\Models\menu;
+use App\Models\restaurant;
 use App\Http\Requests\StoreorderRequest;
 use App\Http\Requests\UpdateorderRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -54,7 +57,11 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $restaurants = Restaurant::all();
+        $dishes = Dish::all();
+        $menus = Menu::all();
+
+        return view('order.create', ['restaurants' => $restaurants, 'dishes' => $dishes, 'menus' => $menus]);
     }
 
     /**
@@ -63,9 +70,19 @@ class OrderController extends Controller
      * @param  \App\Http\Requests\StoreorderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreorderRequest $request)
+    public function store(Request $request)
     {
-        //
+        $order = new Order;
+
+        // $order->restaurant_id = $request->create_order_restaurant_id;
+        // $order->menu_id = $request->create_order_menu_id;
+        $order->dish_id = $request->create_order_dish_id;
+        $order->count = $request->create_order_count;
+        $order->user_id = Auth::user()->id;
+
+        $order->save();
+
+        return redirect()->route('orders-index')->with('success', 'Created new order!');
     }
 
     /**

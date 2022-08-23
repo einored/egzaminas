@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('restaurant_id');
+            // $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            // $table->unsignedBigInteger('menu_id');
+            // $table->foreign('menu_id')->references('id')->on('menus');
             $table->unsignedBigInteger('dish_id');
             $table->foreign('dish_id')->references('id')->on('dishes');
             $table->integer('count');
