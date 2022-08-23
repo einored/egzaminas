@@ -60,6 +60,41 @@
                     </table>
                 </div>
 @endif
+@if(Auth::user()->role < 9) <div class="card-body">
+                    @include('msg.main')
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Dish</th>
+                                <th scope="col">Count</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        @forelse($orders as $order)
+                        @if(Auth::user()->id == $order->user_id)
+                        <tr>
+                            <td>{{$order->dish->name}}</td>
+                            <td>{{$order->count}}</td>
+                            <td>
+                                @if($order->status == 0)
+                                Pending...
+                                @elseif($order->status == 1)
+                                    Confirmed
+                                @else
+                                    Canceled
+                                @endif
+                            </td> 
+                        </tr>
+
+
+                        @endif
+                        @empty
+                        <li>No Orders...</li>
+                        @endforelse
+                    </table>
+            </div>
+            @endif
+
             </div>
         </div>
     </div>

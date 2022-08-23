@@ -7,7 +7,6 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">Dish list</div>
-@if(Auth::user()->role > 9)
                 <div class="card-body">
                     @include('msg.main')
                     <table class="table">
@@ -18,8 +17,10 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
+                                @if(Auth::user()->role > 9)
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
+                                @endif
                             </tr>
                         </thead>
                         @forelse($dishes as $dish)
@@ -33,6 +34,7 @@
                                 <img src="{{$dish->image}}">
                                 @endif
                             </td>
+                            @if(Auth::user()->role > 9)
                             <td>
                                 <a class="btn btn-success btn-sm" href="{{route('dishes-edit', $dish->id)}}">Edit</a>
                             </td>
@@ -43,6 +45,7 @@
                             <button type="submit" class="btn btn-outline-warning btn-sm">Delete</button>
                             </form>
                             </td>
+                            @endif
                         </tr>
 
                         @empty
@@ -50,7 +53,6 @@
                         @endforelse
                     </table>
                 </div>
-@endif
             </div>
         </div>
     </div>

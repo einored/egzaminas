@@ -98,7 +98,6 @@
                             </div>
                         </li>
 
-                        @if(Auth::user()->role > 9)
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Orders
@@ -110,7 +109,7 @@
                                 
                             </div>
                         </li>
-@endif
+
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
